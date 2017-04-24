@@ -2,7 +2,11 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 
-// change dodge array into dodge ArrayList<Dodge>
+// Runs a simulation. Dodges are created, and they each are tested on their ability to jump 
+// over the missle. The best dodges reprodue and survive to the next generation. The program
+// creates and reads data from files for each generation
+
+// TODO change dodge array into dodge ArrayList<Dodge> to vary population sizes by generation
 
 public class Main {
 
@@ -14,6 +18,9 @@ public class Main {
    public static final String GENERATION_FILE_NAME = "_Generation";
    
    public static void main(String[] args) throws FileNotFoundException {
+      // TODO allow to read from file when behaviors are complex enough to take
+      // many many generations 10000 perhaps??
+      
       //boolean load = input.next().equalsIgnoreCase("y");
       //if (load) {
          // String fileName = input.next();
@@ -36,6 +43,8 @@ public class Main {
       System.out.println("DONE");
    }
    
+   // Generates one generation of dodges. Also updates the graph of average Dodge fitness given the 
+   // generation and a graphics g object. 
    public static Dodge[] generateGeneration(Graphics g, int generation) throws FileNotFoundException {
       Dodge[] dodge = new Dodge[100];
       if (generation == 0) {
